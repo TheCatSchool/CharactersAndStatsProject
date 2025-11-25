@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="link"><a href="/Home">Home</a></div>
+        <div class="link"><a href="/Characters">Characters</a></div>
+        <div class="link"><a href="/News">News</a></div>
+        <div class="link"><a href="/Accounts">Accounts</a></div>
+        <div class="link"><a href="/Profile">Profile</a></div>
+        
+    </div>
+    <div class="main">
+
+    </div>
+</body>
+
+</html>
+<style>
+    body {
+    margin: 0px;
+}
+
+.my-element::-webkit-scrollbar {
+    display: none;
+    /* Hides scrollbar but allows scrolling */
+}
+
+.Header {
+    justify-content: space-around;
+    align-items: top;
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 4px inset;
+    box-shadow: 10px 10px;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    margin-top: 1px;
+    width: 24.5%;
+    height: 14vh;
+    background-color: rgb(255, 255, 255);
+}
+a {
+    color: black;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-decoration: none;
+}
+.link:hover {
+    transition-duration: 1s;
+    background-color: rgb(217, 217, 217);
+}
+</style>
