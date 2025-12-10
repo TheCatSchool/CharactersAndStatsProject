@@ -1,0 +1,196 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="link"><a href="/Menu">Home</a></div>
+        <div class="link"><a href="/Characters">Characters</a></div>
+        <div class="link"><a href="/News">News</a></div>
+        <div class="link"><a href="/Account">Account</a></div>
+        <div class="link"><a href="/Profile">Profile</a></div>
+
+    </div>
+    <div class="main">
+        <form action='/register' method="POST">
+            <div class="logflat">
+                <div class="uppertext">
+                    <p>Log in </p>
+                </div>
+                <div class="Details">
+                    <div class="Email">
+                        <p>Email:</p><input type="text" id="Email" name="email" placeholder="Email" />
+
+
+                        <p>Username:</p><input type="text" id="Email" name="username" placeholder="Username" />
+
+
+                        <p>Password:</p><input type="text" id="pass" name="password" placeholder="Password" />
+                    </div>
+
+                    <div class="Login"><input id="login" type="submit" value="send" /></div>
+                </div>
+                <div class="Lower"><a href="/regrister"></a>
+                    <p>Dont have an account? Sign up?</p>
+                </div>
+            </div>
+
+    </div>
+    </form>
+    </div>
+</body>
+
+</html>
+<style>
+    body {
+        margin: 0px;
+    }
+
+    .my-element::-webkit-scrollbar {
+        display: none;
+        /* Hides scrollbar but allows scrolling */
+    }
+
+    .Header {
+        justify-content: space-around;
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        background-color: rgb(255, 255, 255);
+
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1px;
+        width: 24.5%;
+        height: 10vh;
+        box-shadow: 5px 5px rgb(194, 194, 194);
+        background-color: rgb(255, 255, 255);
+    }
+
+    a {
+        color: black;
+        font-size: larger;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .link:hover {
+        transition-duration: 1s;
+        background-color: rgb(217, 217, 217);
+    }
+
+    .logflat {
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 40vw;
+        height: 70vh;
+        background-color: rgb(219, 219, 219);
+        box-shadow: 5px 5px rgb(194, 194, 194);
+        border-radius: 10px;
+    }
+
+    .uppertext {
+        justify-content: center;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bolder;
+        display: flex;
+        width: 80%;
+        height: 10vh;
+        font-size: xx-large;
+
+    }
+
+
+    .Details {
+
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 50vh;
+    }
+
+    .InfoText {
+        height: auto;
+        width: 100%;
+        display: flex;
+    }
+
+    .Email {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 35vh;
+        border-radius: 5px;
+    }
+
+    #Email {
+        width: 100%;
+        height: 12vh;
+        border-radius: 5px;
+        border: 0;
+        outline: none;
+        text-decoration: none;
+
+    }
+
+    #pass {
+        width: 100%;
+        border-radius: 5px;
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        height: 7vh;
+    }
+
+
+    .password {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2vh;
+        width: 100%;
+        height: 15vh;
+    }
+
+    .login {
+        margin-top: 2vh;
+        width: 50%;
+        height: 10vh;
+        display: flex;
+
+    }
+
+    #login {
+        width: 100%;
+    }
+
+    .lower {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 80%;
+        height: 10vh;
+    }
+</style>

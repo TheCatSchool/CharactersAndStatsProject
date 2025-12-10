@@ -1,0 +1,220 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="link"><a href="/Menu">Home</a></div>
+        <div class="link"><a href="/Characters">Characters</a></div>
+        <div class="link"><a href="/News">News</a></div>
+        <div class="link"><a href="/Account">Account</a></div>
+        <div class="link"><a href="/Profile">Profile</a></div>
+
+    </div>
+    <div class="main">
+        <form action="/Profile/Create" method="POST">
+            <div id="C">
+                <div class="sidecreate">
+                    <div class="picture"></div>
+                    <div class="minorbio"><textarea id="minorbio" name="minorbio" placeholder="Email"></textarea>
+                    </div>
+                </div>
+                <div class="create">
+                    <div class="name"><input type="text" id="loginuser" name="charname" placeholder="Character name" />
+                    </div>
+                    <div class="description"><textarea id="majordesc" name="maindesc" placeholder="Email"></textarea>
+                    </div>
+                    <div class="stats">
+                        <div class="total">Points Remaining: <span id="pointsRemaining">60</span></div>
+                        <div class="category">
+                            <label for="strength">Strength:</label>
+                            <input type="number" name="strength" id="strength" min="1" value="1">
+                        </div>
+
+                        <div class="category">
+                            <label for="durability">Durability:</label>
+                            <input type="number" name="durability" id="durability" min="1" value="1">
+                        </div>
+
+                        <div class="category">
+                            <label for="endurance">Endurance:</label>
+                            <input type="number" name="endurance" id="endurance" min="1" value="1">
+
+                        </div>
+                        <div class="category">
+                            <label for="agility">Agility:</label>
+                            <input type="number" name="agility" id="agility" min="1" value="1">
+                        </div>
+
+                        <div class="category">
+                            <label for="intelligence">Intelligence:</label>
+                            <input type="number" name="intelligence" id="intelligence" min="1" value="1">
+                        </div>
+
+                        <div class="category">
+                            <label for="powers">Powers:</label>
+                            <input type="number" name="powers" id="powers" min="1" value="1">
+                        </div>
+                    </div>
+
+                    <button type="submit">Create Character</button>
+                </div>
+        </form>
+    </div>
+    </div>
+</body>
+
+</html>
+<style>
+    body {
+        margin: 0px;
+    }
+
+    .my-element::-webkit-scrollbar {
+        display: none;
+        /* Hides scrollbar but allows scrolling */
+    }
+
+    .Header {
+        justify-content: space-around;
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        background-color: rgb(255, 255, 255);
+
+    }
+
+    .main {
+        display: flex;
+        width: 100%;
+        height: 90vh;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1px;
+        width: 24.5%;
+        height: 10vh;
+        box-shadow: 5px 5px rgb(194, 194, 194);
+        background-color: rgb(255, 255, 255);
+    }
+
+    a {
+        color: black;
+        font-size: larger;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .link:hover {
+        transition-duration: 1s;
+        background-color: rgb(217, 217, 217);
+    }
+
+    .create {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 80vh;
+        background-color: rgb(255, 255, 255);
+
+    }
+
+    .sidecreate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30vw;
+        height: 80vh;
+        background-color: rgb(217, 217, 217);
+        flex-direction: column;
+    }
+
+    #c {
+        margin-top: 2vh;
+        margin-left: 1vw;
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        outline: dotted;
+    }
+
+    .picture {
+        margin-top: 2vh;
+        width: 25vw;
+        background-color: white;
+        height: 40vh;
+    }
+
+    .minorbio {
+        display: flex;
+        margin-top: 2vh;
+        width: 25vw;
+        background-color: white;
+        height: 40vh;
+    }
+
+    #minorbio {
+        width: 100%;
+
+    }
+
+    #majordesc {
+        width: 80%;
+        height: 20vh;
+    }
+
+    .name {}
+
+    .description {}
+
+    .stats {}
+</style>
+<script>
+    const maxPoints = 60;
+    const inputs = document.querySelectorAll("input[type=number]");
+    const pointsRemainingDisplay = document.getElementById("pointsRemaining");
+
+    function updatePoints(e) {
+        // Calculate total used, treating empty fields as 0 temporarily
+        let totalUsed = 0;
+        inputs.forEach(input => {
+            let val = parseInt(input.value);
+            totalUsed += isNaN(val) ? 0 : val;
+        });
+
+        let pointsRemaining = maxPoints - totalUsed;
+
+        // If total exceeds maxPoints, reduce the last changed input
+        if (pointsRemaining < 0 && e) {
+            let currentVal = parseInt(e.target.value) || 0;
+            e.target.value = currentVal + pointsRemaining; // reduce to fit max
+            pointsRemaining = 0;
+        }
+
+        pointsRemainingDisplay.textContent = pointsRemaining;
+
+        // After calculation, ensure empty inputs become minimum 1
+        inputs.forEach(input => {
+            if (input.value === "" || parseInt(input.value) < 1) {
+                input.value = 1;
+            }
+        });
+    }
+
+    // Attach event listeners
+
+    // Attach event listeners
+    inputs.forEach(input => input.addEventListener("input", updatePoints));
+
+    // Initialize
+    updatePoints();
+</script>

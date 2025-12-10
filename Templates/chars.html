@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Characters</title>
+</head>
+<body>
+    <h1>All Characters</h1>
+
+    {% if characters %}
+        <ul>
+        {% for char in characters %}
+            <li>
+                <strong>{{ char.charname }}</strong> by <em>{{ char.creator }}</em><br>
+                {{ char.charbio }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No characters found.</p>
+    {% endif %}
+
+    <a href="/Menu">Back to Menu</a>
+</body>
+</html>

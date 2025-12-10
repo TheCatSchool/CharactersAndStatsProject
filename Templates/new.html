@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Points Allocation with Boxes</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .category { margin-bottom: 15px; }
+  .category label { display: inline-block; width: 120px; }
+  input[type=number] { width: 60px; padding: 5px; }
+  .total { margin-top: 20px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>Distribute 40 Points Among Categories</h2>
+
+<div class="category">
+  <label for="strength">Strength:</label>
+  <input type="number" id="strength" min="1" value="1">
+</div>
+
+<div class="category">
+  <label for="agility">Agility:</label>
+  <input type="number" id="agility" min="1" value="1">
+</div>
+
+<div class="category">
+  <label for="intelligence">Intelligence:</label>
+  <input type="number" id="intelligence" min="1" value="1">
+</div>
+
+<div class="total">Points Remaining: <span id="pointsRemaining">40</span></div>
+
+<script>
+const maxPoints = 40;
+const inputs = document.querySelectorAll("input[type=number]");
+const pointsRemainingDisplay = document.getElementById("pointsRemaining");
+
+function updatePoints(e) {
+    // Make sure input is at least 0
+    if (e) {
+        if (parseInt(e.target.value) < 0 || isNaN(parseInt(e.target.value))) {
+            e.target.value = 0;
+        }
+    }
+
+    let totalUsed = 0;
+    inputs.forEach(input => totalUsed += parseInt(input.value));
+
+    let pointsRemaining = maxPoints - totalUsed;
+
+    // If total exceeds maxPoints, reduce the last changed input
+    if (pointsRemaining < 0 && e) {
+        e.target.value = parseInt(e.target.value) + pointsRemaining;
+        pointsRemaining = 0;
+    }
+
+    pointsRemainingDisplay.textContent = pointsRemaining;
+}
+
+// Attach event listeners
+inputs.forEach(input => input.addEventListener("input", updatePoints));
+
+// Initialize
+updatePoints();
+</script>
+
+</body>
+</html>
